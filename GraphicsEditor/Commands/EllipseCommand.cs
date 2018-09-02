@@ -1,8 +1,7 @@
 ﻿using System;
 using ConsoleUI;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GraphicsEditor.Shapes;
+using System.Drawing;
 
 namespace GraphicsEditor.Commands
 {
@@ -31,7 +30,16 @@ namespace GraphicsEditor.Commands
 
         public void Execute(params string[] parameters)
         {
-            throw new NotImplementedException();
+            if (parameters.Length != 5)
+            {
+                throw new ArgumentException("Команда ожидает пять параметров");
+            }
+
+            PointF centerPoint = new PointF(float.Parse(parameters[0]), float.Parse(parameters[1]));
+            SizeF size = new SizeF(float.Parse(parameters[2]), float.Parse(parameters[3]));
+            float angle     = float.Parse(parameters[4]);
+
+            Picture.Add(new Ellipse(centerPoint, size, angle));
         }
     }
 }

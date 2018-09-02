@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using ConsoleUI;
 using GraphicsEditor.Shapes;
 
@@ -29,21 +30,15 @@ namespace GraphicsEditor.Commands
 
         public void Execute(params string[] parameters)
         {
-            try
-            {
-                if (parameters.Length != 2)
-                {
-                    throw new OverflowException("Команда ожидает два параметра");
-                }
 
-                float x = float.Parse(parameters[0]);
-                float y = float.Parse(parameters[1]);
-                Picture.Add(new Point(x, y));
-            } catch (Exception error)
+            if (parameters.Length != 2)
             {
-                Console.WriteLine(error.Message);
-                Console.WriteLine(error.StackTrace);
-            } 
+                throw new FormatException("Команда ожидает два параметра");
+            }
+
+            PointF point = new PointF(float.Parse(parameters[0]), float.Parse(parameters[1]));
+            Picture.Add(new Shapes.Point(point));
+            
         }
     }
 }

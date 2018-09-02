@@ -4,6 +4,7 @@ using GraphicsEditor.Shapes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace GraphicsEditor.Commands
 {
@@ -32,29 +33,14 @@ namespace GraphicsEditor.Commands
 
         public void Execute(params string[] parameters)
         {
-            try
+            if (parameters.Length != 4)
             {
-                if (parameters.Length != 4)
-                {
-                    throw new ArgumentException("Команда ожидает четыре параметра");
-                }
+                throw new ArgumentException("Команда ожидает четыре параметра");
+            }
 
-                float x = float.Parse(parameters[0]);
-                float y = float.Parse(parameters[1]);
-                Picture.Add(new Point(x, y));
-            }
-            catch (ArgumentException error)
-            {
-                Console.WriteLine(error.Message);
-            }
-            catch (OverflowException error)
-            {
-                Console.WriteLine("Один из параметров слишком большой");
-            }
-            catch (FormatException error)
-            {
-                Console.WriteLine("Формат ");
-            }
+            PointF startPoint = new PointF(float.Parse(parameters[0]), float.Parse(parameters[1]));
+            PointF endPoint = new PointF(float.Parse(parameters[2]), float.Parse(parameters[3]));
+            Picture.Add(new Line(startPoint, endPoint));
         }
     }
 }

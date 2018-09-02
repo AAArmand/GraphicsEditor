@@ -67,7 +67,22 @@ namespace ConsoleUI
 
                 parameters = new string[cmdline.Length - 1];
                 Array.Copy(cmdline, 1, parameters, 0, cmdline.Length - 1);
-                FindCommand(cmdline[0]).Execute(parameters);
+                try
+                {
+                    FindCommand(cmdline[0]).Execute(parameters);
+                }
+                catch (ArgumentException error)
+                {
+                    Console.WriteLine(error.Message);
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Один из параметров слишком большой");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Нужно вводить числа в качестве параметров");
+                }
             }
         }
     }

@@ -10,6 +10,11 @@ namespace DrawablesUI
         private readonly Form form;
         private Thread thread;
 
+        public Form GetForm()
+        {
+            return form;
+        }
+
         public DrawableGUI(IDrawable picture)
         {
             this.picture = picture;

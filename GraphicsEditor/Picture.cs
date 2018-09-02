@@ -6,12 +6,20 @@ namespace GraphicsEditor
 {
     public class Picture : IDrawable
     {
-        private readonly List<IDrawable> shapes = new List<IDrawable>();
+        private readonly List<IShape> shapes = new List<IShape>();
         private readonly object lockObject = new object();
 
         public event Action Changed;
 
-        public void Remove(IDrawable shape)
+        public List<IShape> GetShapes()
+        {
+            lock (lockObject)
+            {
+                return shapes;
+            }
+        }
+
+        public void Remove(IShape shape)
         {
             lock (lockObject)
             {
@@ -29,7 +37,7 @@ namespace GraphicsEditor
             }
         }
 
-        public void Add(IDrawable shape)
+        public void Add(IShape shape)
         {
             lock (lockObject)
             {
@@ -39,7 +47,7 @@ namespace GraphicsEditor
             }
         }
 
-        public void Add(int index, IDrawable shape)
+        public void Add(int index, IShape shape)
         {
             lock (lockObject)
             {

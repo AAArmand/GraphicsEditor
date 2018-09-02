@@ -1,8 +1,7 @@
 ﻿using System;
 using ConsoleUI;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GraphicsEditor.Shapes;
+using System.Drawing;
 
 namespace GraphicsEditor.Commands
 {
@@ -31,7 +30,15 @@ namespace GraphicsEditor.Commands
 
         public void Execute(params string[] parameters)
         {
-            throw new NotImplementedException();
+            if (parameters.Length != 3)
+            {
+                throw new ArgumentException("Команда ожидает три параметра");
+            }
+
+            PointF centerPoint = new PointF(float.Parse(parameters[0]), float.Parse(parameters[1]));
+            float radius       = float.Parse(parameters[2]);
+
+            Picture.Add(new Circle(centerPoint, radius));
         }
     }
 }

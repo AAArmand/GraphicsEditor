@@ -3,13 +3,18 @@ using System.Drawing;
 
 namespace GraphicsEditor.Shapes
 {
-    public class Point : IDrawable
+    public class Point : IShape
     {
-        private PointF Coordinates;
+        public PointF Coordinates { private get; set; }
 
-        public Point(float x, float y)
+        public string Description { get {
+                return "Точка(" + Coordinates.X + "," + Coordinates.Y +")";
+            }
+        }
+
+        public Point(PointF point)
         {
-            Coordinates = new PointF(x, y);
+            Coordinates = point;
         }
 
         public void Draw(IDrawer drawer)

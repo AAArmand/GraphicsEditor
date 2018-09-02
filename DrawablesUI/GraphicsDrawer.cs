@@ -18,6 +18,12 @@ namespace DrawablesUI
             g.CompositingQuality = CompositingQuality.HighQuality;
             g.SmoothingMode = SmoothingMode.AntiAlias;
         }
+
+        public void DrawImage(Image image, PointF point)
+        {
+            graph.DrawImage(image, point);
+        }
+
         public void SelectPen(Color color, int width=1)
         {
             pen.Dispose();
