@@ -38,11 +38,7 @@ namespace GraphicsEditor.Commands
             {
                 throw new ArgumentException("Команда принимает 1 параметр");
             }
-
-            Graphics graph = Form.CreateGraphics();
-            Bitmap bmpPicture = new Bitmap(@"C:\Projects\JunkFiles\" + parameters[0] + ".bmp");
-
-            graph.DrawImage(bmpPicture, 200, 300);
+        //тут код сохранения
            
         }
     }
