@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
+using DrawablesUI;
 
 namespace GraphicsEditor.Commands
 {
@@ -37,8 +39,11 @@ namespace GraphicsEditor.Commands
                 throw new ArgumentException("Команда принимает 1 параметр");
             }
 
-            Bitmap bitmap = new Bitmap(200, 300, Form.CreateGraphics());
-            bitmap.Save(@"C:\Projects\JunkFiles\" + parameters[0]);
+            Graphics graph = Form.CreateGraphics();
+            Bitmap bmpPicture = new Bitmap(@"C:\Projects\JunkFiles\" + parameters[0] + ".bmp");
+
+            graph.DrawImage(bmpPicture, 200, 300);
+           
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using GraphicsEditor.Shapes;
 using System.Drawing;
 using System.IO;
+using DrawablesUI;
 
 namespace GraphicsEditor.Commands
 {
@@ -44,7 +45,7 @@ namespace GraphicsEditor.Commands
             }
 
             Image imageFile = Image.FromFile(@"C:\Projects\JunkFiles\" + parameters[0]);
-            Picture.Add(new SourceImage(imageFile, new PointF(100, 100)));
+            Picture.Add(new SourceImage(imageFile, new PointF(100, 100), new FormatInfo(Color.Black, 5)));
             
         }
     }

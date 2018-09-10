@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DrawableGUI.cs" />
+    <Compile Include="FormatInfo.cs" />
     <Compile Include="GraphicsDrawer.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="IDrawer.cs" />

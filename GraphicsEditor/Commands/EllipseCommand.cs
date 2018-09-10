@@ -2,6 +2,7 @@
 using ConsoleUI;
 using GraphicsEditor.Shapes;
 using System.Drawing;
+using DrawablesUI;
 
 namespace GraphicsEditor.Commands
 {
@@ -39,7 +40,7 @@ namespace GraphicsEditor.Commands
             SizeF size = new SizeF(float.Parse(parameters[2]), float.Parse(parameters[3]));
             float angle     = float.Parse(parameters[4]);
 
-            Picture.Add(new Ellipse(centerPoint, size, angle));
+            Picture.Add(new Ellipse(centerPoint, size, angle, new FormatInfo(Color.Black, 5)));
         }
     }
 }

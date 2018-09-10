@@ -2,6 +2,7 @@
 using System.Drawing;
 using ConsoleUI;
 using GraphicsEditor.Shapes;
+using DrawablesUI;
 
 namespace GraphicsEditor.Commands
 {
@@ -37,7 +38,7 @@ namespace GraphicsEditor.Commands
             }
 
             PointF point = new PointF(float.Parse(parameters[0]), float.Parse(parameters[1]));
-            Picture.Add(new Shapes.Point(point));
+            Picture.Add(new Shapes.Point(point, new FormatInfo(Color.Black, 5)));
             
         }
     }

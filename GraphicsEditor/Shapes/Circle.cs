@@ -7,6 +7,8 @@ namespace GraphicsEditor.Shapes
     {
         public PointF Center { private get; set; }
 
+        public FormatInfo Format { private get; set; }
+
         public SizeF Size { private get; set; }
 
         public string Description {
@@ -15,8 +17,9 @@ namespace GraphicsEditor.Shapes
             }
         }
 
-        public Circle (PointF center, float radius)
+        public Circle (PointF center, float radius, FormatInfo formatInfo)
         {
+            Format = formatInfo;
             Center = center;
             float diameter = radius * 2;
             Size = new SizeF(diameter, diameter);
@@ -24,7 +27,7 @@ namespace GraphicsEditor.Shapes
 
         public void Draw(IDrawer drawer)
         {
-            drawer.SelectPen(Color.Black, 5);
+            drawer.SelectPen(Format.Color, Format.Width);
             drawer.DrawEllipseArc(Center, Size);
         }
     }

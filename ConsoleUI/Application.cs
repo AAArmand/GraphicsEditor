@@ -82,6 +82,9 @@ namespace ConsoleUI
                 catch (FormatException)
                 {
                     Console.WriteLine("Нужно вводить числа в качестве параметров");
+                } catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
                 }
             }
         }

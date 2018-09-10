@@ -26,7 +26,7 @@ namespace GraphicsEditor.Commands
         }
 
         public string[] Synonyms {
-            get { return new string[] { "delete" }; }
+            get { return new string[] { "table" }; }
         }
 
         public void Execute(params string[] parameters)
@@ -40,6 +40,7 @@ namespace GraphicsEditor.Commands
             foreach (IShape shape in Picture.GetShapes())
             {
                 Console.WriteLine("[" + i + "] " + shape.Description);
+                i++;
             }
         }
     }

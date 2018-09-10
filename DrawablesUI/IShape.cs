@@ -8,6 +8,7 @@ namespace DrawablesUI
 {
     public interface IShape : IDrawable
     {
+        FormatInfo Format { set; }
         string Description { get; }
     }
 }

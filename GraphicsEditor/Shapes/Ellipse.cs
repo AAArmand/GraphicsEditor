@@ -10,6 +10,8 @@ namespace GraphicsEditor.Shapes
 
         public PointF Center { private get; set; }
 
+        public FormatInfo Format { private get; set; }
+
         public SizeF Size { private get; set; }
         
         public float Rotate { private get; set; } = 0;
@@ -22,8 +24,9 @@ namespace GraphicsEditor.Shapes
             }
         }
 
-        public Ellipse(PointF center, SizeF size, float rotate)
+        public Ellipse(PointF center, SizeF size, float rotate, FormatInfo formatInfo)
         {
+            Format = formatInfo;
             Center = center;
             Size = size;
             Rotate = rotate;
@@ -31,7 +34,7 @@ namespace GraphicsEditor.Shapes
 
         public void Draw(IDrawer drawer)
         {
-            drawer.SelectPen(Color.Black, 5);
+            drawer.SelectPen(Format.Color, Format.Width);
             drawer.DrawEllipseArc(Center, Size, startAngle, endAngle, Rotate);
         }
     }

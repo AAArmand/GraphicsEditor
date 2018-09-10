@@ -15,7 +15,7 @@ namespace GraphicsEditor
             var picture = new Picture();
             var ui = new DrawableGUI(picture);
             var app = new ConsoleUI.Application();
-
+            
             app.AddCommand(new ExitCommand(app));
             app.AddCommand(new ExplainCommand(app));
             app.AddCommand(new HelpCommand(app));
@@ -27,6 +27,8 @@ namespace GraphicsEditor
             app.AddCommand(new ListCommand(picture));
             app.AddCommand(new EllipseCommand(picture));
             app.AddCommand(new CircleCommand(picture));
+            app.AddCommand(new ColorCommand(picture));
+            app.AddCommand(new WidthCommand(picture));
 
             picture.Changed += ui.Refresh;
             ui.Start();

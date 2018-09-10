@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using DrawablesUI;
 
 namespace GraphicsEditor.Commands
 {
@@ -40,7 +41,7 @@ namespace GraphicsEditor.Commands
 
             PointF startPoint = new PointF(float.Parse(parameters[0]), float.Parse(parameters[1]));
             PointF endPoint = new PointF(float.Parse(parameters[2]), float.Parse(parameters[3]));
-            Picture.Add(new Line(startPoint, endPoint));
+            Picture.Add(new Line(startPoint, endPoint, new FormatInfo(Color.Black, 5)));
         }
     }
 }

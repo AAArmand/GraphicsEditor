@@ -2,6 +2,7 @@
 using ConsoleUI;
 using GraphicsEditor.Shapes;
 using System.Drawing;
+using DrawablesUI;
 
 namespace GraphicsEditor.Commands
 {
@@ -38,7 +39,7 @@ namespace GraphicsEditor.Commands
             PointF centerPoint = new PointF(float.Parse(parameters[0]), float.Parse(parameters[1]));
             float radius       = float.Parse(parameters[2]);
 
-            Picture.Add(new Circle(centerPoint, radius));
+            Picture.Add(new Circle(centerPoint, radius, new FormatInfo(Color.Black, 5)));
         }
     }
 }

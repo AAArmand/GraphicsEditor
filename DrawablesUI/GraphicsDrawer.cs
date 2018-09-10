@@ -24,7 +24,7 @@ namespace DrawablesUI
             graph.DrawImage(image, point);
         }
 
-        public void SelectPen(Color color, int width=1)
+        public void SelectPen(Color color, uint width=1)
         {
             pen.Dispose();
             pen = new Pen(color, width);
